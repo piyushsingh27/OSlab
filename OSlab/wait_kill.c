@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<sys/wait.h>
+#include<signal.h>
 
 int g_val = 100;
 
@@ -9,7 +10,7 @@ int main()
 {
     int x = 10;
     char *name = NULL;
-    pid_t PID;
+    pid_t PID,PPID;
     int num;
 
     PID = fork();
@@ -47,9 +48,9 @@ int main()
     return 0;
     printf("\n");
     //sleep(5);
-
+       // kill(PPID,9);
         exit(0);
-        kill(PID,9);
+        
     }
 
     else
@@ -61,6 +62,8 @@ int main()
 	    printf("%s   %d   %d", name, x, g_val);
         printf("\n Enter the number to find factorial:");
         scanf("%d",&num);
+        PPID = getpid();
+        printf("%d",PPID);
         int i,fact=1;
         for(i = 1;i <= num;i += 1)
         {
@@ -69,6 +72,7 @@ int main()
         printf("\n Factorial of number %d is: %d",num,fact);
     }
 	//printf("%s   %d   %d", name, x, g_val);
+        kill(PPID,9);
         return 0;
 }	
         

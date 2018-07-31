@@ -18,7 +18,7 @@ int main()
     }
 
 
-    if(PID == 0)
+    if(PID == 0)//child1
     {
        name = "Child";
 	printf("%s   %d   %d", name, x, g_val);
