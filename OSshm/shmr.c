@@ -19,7 +19,7 @@ int main()
     int shmid = shmget(key, sizeof(message), 0644|IPC_CREAT);
 
     message *mymsg = (message *)shmat(shmid, NULL, 0);
-
+    printf("Message Received:\n");
     printf("%d\n",mymsg->id);
     printf("%s\n",mymsg->msg);
 

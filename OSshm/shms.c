@@ -3,7 +3,6 @@
 #include<sys/shm.h>
 #include<sys/ipc.h>
 #include<unistd.h>
-#include<stdio.h>
 #include<stdlib.h>
 
 typedef struct
@@ -20,8 +19,8 @@ int main()
 
     message *mymsg = (message *)shmat(shmid, NULL, 0);
 
-    mymsg->id = 44;
-    strcpy(mymsg->msg,"Time");
-
+    mymsg->id = 1747203;
+    strcpy(mymsg->msg,"Hello World");
+    printf("Message Sent!");
     shmdt(mymsg);
 }
